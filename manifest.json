@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "洛谷 AI 代码分析器",
+  "version": "1.0.0",
+  "description": "在洛谷提交记录页面注入 AI 代码分析，支持方法、运行效率、代码风格三维度分析",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "洛谷 AI 分析器"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.luogu.com.cn/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "webNavigation",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://www.luogu.com.cn/*",
+    "https://*/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*"],
+      "matches": ["https://www.luogu.com.cn/*"]
+    }
+  ]
+}
