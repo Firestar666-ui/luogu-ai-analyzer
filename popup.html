@@ -541,8 +541,7 @@
           <span>🌐 API Key</span>
         </div>
         <div class="input-wrapper">
-          <input type="password" class="setting-input" id="api-key" placeholder="输入您的 GLM API Key">
-          <div class="input-hint">在 <a href="https://open.bigmodel.cn/" target="_blank" style="color: #a78bfa;">bigmodel.cn</a> 获取 API Key</div>
+          <input type="password" class="setting-input" id="api-key" placeholder="输入您的 API Key">
         </div>
       </div>
 
@@ -551,8 +550,7 @@
           <span>🌍 API 地址</span>
         </div>
         <div class="input-wrapper">
-          <input type="text" class="setting-input" id="api-url" placeholder="默认：智谱 GLM API 地址">
-          <div class="input-hint">留空使用默认智谱 API，兼容所有 OpenAI 格式接口</div>
+          <input type="text" class="setting-input" id="api-url" placeholder="默认：OpenAI 格式 API 地址">
         </div>
       </div>
 
@@ -561,20 +559,16 @@
           <span>🤖 模型名称</span>
         </div>
         <div class="input-wrapper">
-          <input type="text" class="setting-input" id="model-name" placeholder="留空则使用下拉选择">
-          <div class="input-hint">自定义模型名，填写后优先于下拉选择</div>
+          <input type="text" class="setting-input" id="model-name" placeholder="自定义模型名称">
         </div>
       </div>
 
       <div class="setting-item">
         <div class="setting-label">
-          <span>📋 内置模型</span>
+          <span>📦 扩展请求体 (JSON)</span>
         </div>
-        <select class="setting-select" id="model-select">
-          <option value="glm-4.7-flash">GLM-4.7-Flash (推荐)</option>
-          <option value="glm-4.5-flash">GLM-4.5-Flash</option>
-        </select>
-        <div class="input-hint" style="margin-top:6px;">仅在「模型名称」为空时生效</div>
+        <textarea class="setting-input" id="extra-body" rows="4" placeholder='{"temperature": 0.7, "top_p": 0.9}'></textarea>
+        <div class="input-hint">支持自定义请求体字段，格式为 JSON 对象。例如：<code>{"temperature": 0.7, "top_p": 0.9}</code></div>
       </div>
     </div>
 

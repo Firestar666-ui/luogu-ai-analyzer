@@ -26,7 +26,6 @@
     apiKey: document.getElementById('api-key'),
     apiUrl: document.getElementById('api-url'),
     modelName: document.getElementById('model-name'),
-    modelSelect: document.getElementById('model-select'),
     toggleStream: document.getElementById('toggle-stream'),
     toggleNotify: document.getElementById('toggle-notify'),
     toggleHistory: document.getElementById('toggle-history'),
@@ -143,10 +142,6 @@
       updateToggle(elements.toggleHistory, currentConfig.saveHistory);
     });
 
-    // 模型选择
-    elements.modelSelect.addEventListener('change', (e) => {
-      currentConfig.model = e.target.value;
-    });
 
     // API Key 输入
     elements.apiKey.addEventListener('input', (e) => {
@@ -244,7 +239,7 @@
     const apiUrl = elements.apiUrl.value.trim() || DEFAULT_API_URL;
 
     try {
-      const testModel = elements.modelName.value.trim() || elements.modelSelect.value;
+      const testModel = elements.modelName.value.trim();
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
